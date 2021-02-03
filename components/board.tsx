@@ -5,7 +5,7 @@ import { Icons } from '../icons'
 import { Card, CardType } from './card'
 
 interface BoardProps {
-  size: number[]
+  size: [width: number, height: number]
 }
 
 function shuffle<T>(items: T[]) {
