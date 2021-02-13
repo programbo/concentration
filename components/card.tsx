@@ -29,13 +29,18 @@ export function Card({
 
   return (
     <div
-      className="flex flex-col items-center justify-center h-40 transition duration-200 transform bg-blue-500 border-4 border-blue-900 shadow cursor-pointer text-gray-50 group w-28 rounded-xl hover:bg-blue-600 hover:scale-105 hover:shadow-lg"
+      className={clsx(
+        'flex flex-col items-center justify-center h-40 transition duration-200 transform bg-blue-500 border-4 border-blue-900 shadow cursor-pointer text-gray-50 group w-28 rounded-xl hover:bg-blue-600 hover:scale-105 hover:shadow-lg',
+        {
+          'pointer-events-none': selected,
+        }
+      )}
       onClick={handleClick}
     >
       {selected || found ? (
         <Icon
           className={clsx('w-12 h-12', {
-            found: 'opacity-20 pointer-events-none',
+            'opacity-20 pointer-events-none': found,
           })}
         />
       ) : (
