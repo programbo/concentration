@@ -4,16 +4,19 @@ import { useEffect, useState } from 'react'
 import { Icons } from '../icons'
 import { Card, CardType } from './card'
 
+type ValidWidth = 2 | 4 | 6
+type ValidHeight = 1 | 2 | 3 | 4 | 5 | 6
+
 interface BoardProps {
-  size: number[]
+  width: ValidWidth
+  height: ValidHeight
 }
 
 function shuffle<T>(items: T[]) {
   return items.sort(() => (Math.random() > 0.5 ? 1 : -1))
 }
 
-export function Board({ size }: BoardProps) {
-  const [width, height] = size
+export function Board({ width, height }: BoardProps) {
   const numberOfCards = width * height
 
   const [cards, setCards] = useState<CardType[]>([])
