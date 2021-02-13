@@ -5,7 +5,7 @@ import { Icons } from '../icons'
 import { Card, CardType } from './card'
 
 interface BoardProps {
-  size: number[]
+  size: [width: number, height: number]
 }
 
 function shuffle<T>(items: T[]) {
@@ -82,7 +82,7 @@ function columns(width: number) {
 
 function rows(height: number) {
   if (height > 6 || height < 1) {
-    throw new Error('A board should six or less rows.')
+    throw new Error('A board should have six or less rows.')
   }
   switch (height) {
     case 1:
